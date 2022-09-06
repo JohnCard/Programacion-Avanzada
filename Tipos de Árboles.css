@@ -28,6 +28,7 @@ h2{
 }
 
 img{
-    width: 750px;
-    height: 500px;
+  /* display: block; */
+    width: 250px;
+    height: 200px;
 }
