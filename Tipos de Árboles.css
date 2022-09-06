@@ -1,0 +1,33 @@
+*,*:before,*:after{
+    box-sizing: border-box;
+}
+
+body,html{
+    height: 100%;
+}
+
+h1{
+    color: rgb(95, 48, 15);
+    background-image: url(../Imagenes/1.jpg);
+    width: 700px;
+    height: 80px;
+    border-radius: 10px;
+    border: 10px inset green;
+    padding: 18px;
+    padding-top: 10px;
+    text-shadow: 5px 8px 7.5px black;
+    box-shadow: 10px 15px 95px 10px rgb(49, 48, 48);
+}
+
+[value = 'Subir respuesta']{
+    margin: 10px;
+}
+
+h2{
+    margin-top: 50px;
+}
+
+img{
+    width: 750px;
+    height: 500px;
+}
