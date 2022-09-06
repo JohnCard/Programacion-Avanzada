@@ -17,6 +17,12 @@ class arbol{
     getImg(){
         return this.img 
     }
+    get_altura(){
+    return this.altura
+    }
+    get_usos(){
+    return this.usos
+    }
 }
 
 let array = [1,2,3,4,5,'sdfsdfs']
@@ -33,13 +39,19 @@ let var_tres = new arbol(['Lele','negundo','acecintle'],['Chis.','Hgo.','Jal.','
 'En cañadas y riberas',['Bosque caducifolio','pinares,encinares','vegetación riparia'],
 'http://www1.inecol.edu.mx/publicaciones/resumeness/FLOVER/46-cabrera.pdf')
 
-let id_uno = document.getElementById('id_uno')
-id_uno.addEventListener('submit', e => {
+function mostrar_contenido(parametro,variable){
+parametro.addEventListener('submit', e => {
     e.preventDefault()
     let elem_uno = document.createElement('div')
-    id_uno.appendChild(elem_uno)
-    elem_uno.innerHTML = `<em>Nombre del Árbol: ${var_uno.getNombre()}</em> <br><br>
-<strong>Que tiene sus origines en:  ${var_uno.getOrigenes()}</strong> 
-<img src="${var_uno.getImg()}" />`
+    parametro.appendChild(elem_uno)
+    elem_uno.innerHTML = `<em>Nombre del Árbol: ${variable.getNombre()}</em> <br><br>
+<strong>Que tiene sus origines en:  ${variable.getOrigenes()}</strong> <br><br>
+<img src="${variable.getImg()}" /> <br><br>
+<em>Con una altura de aproximadamente: ${variable.get_altura()}</em> <br><br>
+<u>Aplicaciones: ${variable.get_usos()}</u>`
 })
+}
 
+let id_uno = document.getElementById('id_uno')
+
+mostrar_contenido(id_uno,var_uno)
