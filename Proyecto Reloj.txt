@@ -1,0 +1,71 @@
+--- HTML: ---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href=".css">
+    <title>Tipos de Árboles</title>
+</head>
+<body>
+    <header>
+        <h1>Hola Relojes</h1>
+    </header>
+    <main>
+        <h2>Contenido de la Página: </h2>
+    </main>
+    <footer>
+        <b>Has llegado al Final de la correspondiente página.</b>
+    </footer>
+    <script src="Tipos de Árboles.js"></script>
+</body>
+</html>
+
+--- CSS: ---
+*,*:before,*:after {
+  box-sizing: border-box;
+}
+
+body,html {
+  height: 100%
+}
+
+--- JavaScript: ---
+/**
+Pendientes: 
+1.- Úsuarios
+2.- Reloj
+3.- Árboles
+4.- Figuras
+*/
+
+let temporizador = new Date()
+
+class reloj{
+constructor(diametro,forma,tipo,hora = temporizador.getHours(),
+marca,min = temporizador.getMinutes(),seg = temporizador.getSeconds()){
+this.diametro = diametro,
+this.forma = forma,
+this.tipo = tipo,
+this.hora = hora,
+this.min = min,
+this.seg = seg,
+this.marca = marca
+}
+
+contador = 0
+tiempo = 0
+
+obtener_hora(){
+return temporizador.getHours()
+}
+obtener_min(){
+return temporizador.getMinutes()
+}
+obtener_seg(){
+return temporizador.getSeconds()
+}
+}
+
+console.log(temporizador.getMinutes())
