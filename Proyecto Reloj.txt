@@ -6,19 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href=".css">
-    <title>Tipos de ¡rboles</title>
+    <title>Tipos de √Årboles</title>
 </head>
 <body>
     <header>
         <h1>Hola Relojes</h1>
     </header>
     <main>
-        <h2>Contenido de la P·gina: </h2>
+        <h2>Contenido de la P√°gina: </h2>
     </main>
     <footer>
-        <b>Has llegado al Final de la correspondiente p·gina.</b>
+        <b>Has llegado al Final de la correspondiente p√°gina.</b>
     </footer>
-    <script src="Tipos de ¡rboles.js"></script>
+    <script src="Tipos de √Årboles.js"></script>
 </body>
 </html>
 
@@ -34,9 +34,9 @@ body,html {
 --- JavaScript: ---
 /**
 Pendientes: 
-1.- ⁄suarios
+1.- √ösuarios
 2.- Reloj
-3.- ¡rboles
+3.- √Årboles
 4.- Figuras
 */
 
@@ -69,3 +69,31 @@ return temporizador.getSeconds()
 }
 
 console.log(temporizador.getMinutes())
+
+--- JavaScript 2: ---
+class usuario{
+constructor(nombre,edad){
+this.nombre = nombre,
+this.edad = edad
+}
+
+getNombre(){
+return this.nombre
+}
+
+
+}
+
+function crear_usuario(param_uno,param_dos){
+let var_new = new usuario(param_uno,param_dos)
+if(var_new.getNombre() == `John`){
+console.log('Dato incorrecto')
+}
+
+else{
+return var_new
+}
+
+}
+
+let nombre = crear_usuario('John',22)
