@@ -1,28 +1,44 @@
---- HTML: ---
+--- 1: ---
+HTML:
 <!DOCTYPE html>
 <html lang="en">
-<head>
+
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href=".css">
     <title>Tipos de Árboles</title>
-</head>
-<body>
+  </head>
+
+  <body>
     <header>
-        <h1>Hola Relojes</h1>
+      <h1>Hola Relojes</h1>
     </header>
-    <main>
-        <h2>Contenido de la Página: </h2>
+    <main id='main'>
+      <h2>Contenido de la Página: </h2>
+      <form id='id_uno'>
+        <input type="number" name='numero_uno'>
+        <input type="submit" value='Enviar Elemento'>
+      </form>
     </main>
     <footer>
-        <b>Has llegado al Final de la correspondiente página.</b>
+      <b>Has llegado al Final de la correspondiente página.</b>
     </footer>
-    <script src="Tipos de Árboles.js"></script>
-</body>
+  </body>
 </html>
-
---- CSS: ---
+JavaScript:
+let elem_uno = document.getElementById('id_uno')
+elem_uno.addEventListener('submit', e => {
+let b = document.getElementById('main')
+  e.preventDefault()
+  let c = e.target.numero_uno.value
+  if(c == 1){
+  let elem_dos = document.createElement('strong')
+  elem_dos.textContent = 'Favor de digitar de nuevo la variable'
+  b.appendChild(elem_dos)
+}
+})
+CSS:
 *,*:before,*:after {
   box-sizing: border-box;
 }
@@ -31,75 +47,7 @@ body,html {
   height: 100%
 }
 
---- JavaScript: ---
-/**
-Pendientes: 
-1.- Úsuarios
-2.- Reloj
-3.- Árboles
-4.- Figuras
-*/
-
-let temporizador = new Date()
-
-class reloj{
-constructor(diametro,forma,tipo,hora = temporizador.getHours(),
-marca,min = temporizador.getMinutes(),seg = temporizador.getSeconds()){
-this.diametro = diametro,
-this.forma = forma,
-this.tipo = tipo,
-this.hora = hora,
-this.min = min,
-this.seg = seg,
-this.marca = marca
-}
-
-contador = 0
-tiempo = 0
-
-obtener_hora(){
-return temporizador.getHours()
-}
-obtener_min(){
-return temporizador.getMinutes()
-}
-obtener_seg(){
-return temporizador.getSeconds()
-}
-}
-
-console.log(temporizador.getMinutes())
-function watch_me(dueño,tipo,hora,marca,min,seg){
-let new_var = new reloj(dueño,tipo,hora,marca,min,seg)
-while(typeof(dueño) != 'string'){
-
-}
-}
-
---- JavaScript 2: ---
-class usuario{
-constructor(nombre,edad){
-this.nombre = nombre,
-this.edad = edad
-}
-
-getNombre(){
-return this.nombre
-}
-
-
-}
-
-function crear_usuario(param_uno,param_dos){
-let var_new = new usuario(param_uno,param_dos)
-if(var_new.getNombre() == `John`){
-console.log('Dato incorrecto')
-}
-
-else{
-return var_new
-}
-
-}
-
-let nombre = crear_usuario('John',22)
+strong{
+  color: red;
+  background-color: green;
+  }
