@@ -69,6 +69,12 @@ return temporizador.getSeconds()
 }
 
 console.log(temporizador.getMinutes())
+function watch_me(dueño,tipo,hora,marca,min,seg){
+let new_var = new reloj(dueño,tipo,hora,marca,min,seg)
+while(typeof(dueño) != 'string'){
+
+}
+}
 
 --- JavaScript 2: ---
 class usuario{
