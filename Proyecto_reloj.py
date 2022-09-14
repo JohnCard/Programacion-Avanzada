@@ -1,5 +1,3 @@
-# --- Etapa 1 del proyecto (creción de la clase reloj): ---
-
 class reloj:
     def __init__(self,usuario,horas,minutos,segundos):
         self.usuario = usuario
@@ -8,40 +6,46 @@ class reloj:
         self.segundos = segundos
 
     def __str__(self): 
-        return f'''
-        Nombre de usuario: {self.usuario}
-        Horas: {self.horas}
-        Minutos: {self.minutos}
-        Segundos: {self.segundos}
+            return f'''
+Nombre de usuario: {self.usuario}
+Horas: {self.horas}
+Minutos: {self.minutos}
+Segundos: {self.segundos}
             '''
-            
-    def getNombre(self):
-        return f'El Nombre del usuario es: {self.usuario}'
-        
-    def getHoras(self):
-        return f'La hora es: {self.horas}'
-        
-    def getMinutos(self):
-        return f'Minutos: {self.minutos}'
-        
-    def getSegundos(self):
-        return f'Segundos: {self.segundos}'
-        
-    def setHoras(self,hora_nueva):
-        self.horas = hora_nueva
+    def getUser_name(self):
+        return self.usuario
     
-    def setMinutos(self,minuto_nuevo):
-        self.minutos = minuto_nuevo
-    
-    def setSegundos(self,segundo_nuevo):
-        self.segundos = segundo_nuevo
-        
-######################################################################################################################################################################
-######################################################################################################################################################################
-######################################################################################################################################################################
-# --- Etapa 2 del proyecto (creción de la función para crear usuarios): ---
+    def getHours(self):
+        return self.horas
 
-def crear_usuario(usuario,horas,minutos,segundos):
-    usuario_nuevo = reloj(usuario,horas,minutos,segundos)
+    def getMinutes(self):
+        return self.minutos
     
-    while(type(usuario_nuevo.getNombre()) != type('string'))
+    def getSegundos(self):
+        return self.segundos
+    
+    def setName(self,new_userName):
+        self.usuario = new_userName
+    
+    def setHours(self,new_Hours):
+        self.horas = new_Hours
+
+    def setMinutes(self,new_minute):
+        self.minutos = new_minute
+    
+    def setSegundos(self,new_second):
+        self.segundos = new_second
+    
+######################################################################################################################################################################
+######################################################################################################################################################################
+######################################################################################################################################################################
+# --- Etapa 2 del proyecto (creción de la función para crear relojes): ---
+
+def watch_create(usuario,horas,minutos,segundos):
+    new_user = reloj(usuario,horas,minutos,segundos)
+
+    while(type(float(new_user.getUser_name())) != type('string')):
+        new_nombre = input(f'El parametro digitado por usted ({new_user.getUser_name()}) es absolutamente invalido, vuelva a intentarlo porfas: ')
+        new_user.setName(new_nombre)
+
+nombre_uno = watch_create(4,24,23,30)
