@@ -1,3 +1,25 @@
+import string
+from string import ascii_lowercase,ascii_uppercase
+
+abc = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz'
+
+def recorrer(param):
+    cont = 0
+    for i in param:
+        if i not in abc:
+            cont += 1
+    return cont
+
+def setParam(param):
+    while(recorrer(param) > 0):
+        param = input(f'El parametro {param} es !INCORRECTO¡, favor de intentarlo de nuevo: ')
+    return param
+
+def setParam_dos(param):
+    while(param.isdigit() == False):
+        param = input(f'El parametro es invalido, intentelo de nuevo: ')
+    return param
+
 class reloj:
     def __init__(self,usuario,horas,minutos,segundos):
         self.usuario = usuario
@@ -24,28 +46,23 @@ Segundos: {self.segundos}
     def getSegundos(self):
         return self.segundos
     
-    def setName(self,new_userName):
-        self.usuario = new_userName
-    
-    def setHours(self,new_Hours):
-        self.horas = new_Hours
-
-    def setMinutes(self,new_minute):
-        self.minutos = new_minute
-    
-    def setSegundos(self,new_second):
-        self.segundos = new_second
-    
 ######################################################################################################################################################################
 ######################################################################################################################################################################
 ######################################################################################################################################################################
 # --- Etapa 2 del proyecto (creción de la función para crear relojes): ---
 
 def watch_create(usuario,horas,minutos,segundos):
-    new_user = reloj(usuario,horas,minutos,segundos)
+    usuario = setParam(usuario)
+    horas = setParam_dos(horas)
+    minutos = setParam_dos(minutos)
+    segundos = setParam_dos(segundos)
+    
+    var = reloj(usuario,horas,minutos,segundos)
+    return var
 
-    while(type(float(new_user.getUser_name())) != type('string')):
-        new_nombre = input(f'El parametro digitado por usted ({new_user.getUser_name()}) es absolutamente invalido, vuelva a intentarlo porfas: ')
-        new_user.setName(new_nombre)
+nombre = input(f'Digite el nombre del usuario: ')
+hours = input(f'Digite la hora del usuario: ')
+minutes = input(f'Digite la cantidad de minutos: ')
+seconds = input(f'Digite la cantidad de segundos: ')
 
-nombre_uno = watch_create(4,24,23,30)
+watch_create(nombre,hours,minutes,seconds)
