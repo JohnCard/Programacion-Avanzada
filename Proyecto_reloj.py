@@ -1,5 +1,6 @@
 import string
 from string import ascii_lowercase,ascii_uppercase
+import datetime
 
 abc = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz'
 
@@ -45,6 +46,9 @@ Segundos: {self.segundos}
     
     def getSegundos(self):
         return self.segundos
+    
+    def getOffDate(self):
+        return datetime.datetime.now()
     
 ######################################################################################################################################################################
 ######################################################################################################################################################################
