@@ -1,5 +1,14 @@
+letras = 'abcdefghijklmñnopqrstuvwxyzABCDEFGHIJKLMÑNOPQRSTUVWXYZ, '
+
+def recorrer(cadena):
+    cont = 0
+    for i in cadena:
+        if i not in letras:
+            cont += 1
+    return cont
+
 def setParam(param,name):
-    while(param.isalpha() == False):
+    while(recorrer(param) > 0):
         param = input(f'El parametro {param} para {name} es !INCORRECTO¡, favor de intentarlo de nuevo: ')
     return param
 
@@ -20,7 +29,7 @@ class nube:
     \n
     '''    
     
-    # Favor de utilizar la correspo
+    # 
     
     def getNombre(self):
         return f'Nombre de la nube: {self.nombre}'
