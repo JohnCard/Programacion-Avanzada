@@ -24,11 +24,14 @@ Nombre del profesor: {self.profesor}
 Aula: {self.aula}
 Horario: {self.horario}
 Alumnos: {self.alumnos}''')
-    def agreagar_alumno(self,alumno):
+    def agregar_alumno(self,alumno,folio):
             self.alumnos.append(alumno)
+            self.alumnos.append('Folio: '+folio)
     def mostrar_alumnos(self):
         for alumno in alumnos:
             print(alumno)
+    def alumno_folio(self):
+        
 
 # datos para iniciar una clase:
 profesor = input('Digite el nombre del profesor: ')
@@ -44,7 +47,7 @@ for i in range(5):
     c = input(f'Digite su especialidad: ')
     d = input(f'Digite su semestre actual: ')
     alumno_nuevezon = alumno(a,b,c,d)
-    nueva_clase.agreagar_alumno(alumno_nuevezon)
+    nueva_clase.agregar_alumno(alumno_nuevezon,b)
 
 # volvemos a imprimar toda nuestra nueva información nueva de nuestro objeto clase:
 print('Lista de alumnos registrados: ')
