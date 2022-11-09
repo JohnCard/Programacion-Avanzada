@@ -30,8 +30,7 @@ Alumnos: {self.alumnos}''')
     def mostrar_alumnos(self):
         for alumno in alumnos:
             print(alumno)
-    def alumno_folio(self):
-        
+    
 
 # datos para iniciar una clase:
 profesor = input('Digite el nombre del profesor: ')
