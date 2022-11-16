@@ -8,8 +8,7 @@ class article:
     def __str__(self):
         return f'''Nombre del producto: {self.nombre}
 Codigo: {self.codigo}
-Precio: ${self.precio}
-'''
+Precio: ${self.precio}'''
     def getPrecio(self):
         return f'Precio del producto {self.nombre}: ${self.precio}'
     def getNombre(self):
@@ -17,8 +16,36 @@ Precio: ${self.precio}
     def getCode(self):
         return f'Codigo del producto {self.nombre}: {self.codigo}'
 
-class electronics(article):
-    def __init__(precio,nombre,codigo,descripcion,estancia):
+class comida(article):
+    def __init__(precio,nombre,codigo,tipo,grupo):
         super().__init__(precio,nombre,codigo)
+        self.tipo = tipo
+        self.grupo = grupo
+    def __str__(self):
+        return f'''El producto {self.nombre} es del tipo {self.tipo}
+Codigo del producto {self.nombre}: {self.codigo}, que pertenece al grupo de {self.grupo}'''
+
+class electronics(article):
+    def __init__(precio,nombre,codigo,no_bites,tipo_cargador):
+        super().__init__(precio,nombre,codigo)
+        self.no_bites = no_bites
+        self.tipo_cargador = tipo_cargador
     def getDescripcion(self):
-        return f'Descripción del proucto {self.nombre}: {self.descripcion}'
+        return f'El producto {self.nombre} utiliza un cargador de tipo {self.tipo_cargador}'
+    def getEstancia(self):
+        return f'El producto {self.nombre} tiene {self.no_bites}'
+    def __str__(self):
+        return f'''El producto se llama {self.nombre}
+El producto {self.nombre} tiene un precio de {self.precio} y el codigo de {self.codigo}
+El producto tiene una cantidad de {self.no_bites} bites y se recarga con cargadores del tipo {self.tipo_cargador}'''
+
+class computer(article,electronics):
+    def __init__(self,precio,nombre,codigo,no_bites,tipo_cargador,tipo,marca)
+        article.__init__(self,precio,nombre,codigo)
+        electronics.__init__(self,no_bites,tipo_cargador)
+        self.tipo = tipo
+        self.marca = marca
+    def __str__(self):
+        return f'''Nombre del la pc: {self.nombre}
+La computadora {self.nombre} tiene un precio de {self.precio} y sigue el codigo: {self.codigo}
+La computadora {self.nombre} pertenece a la marca {self.marca} y es del tipo {self.tipo}'''
