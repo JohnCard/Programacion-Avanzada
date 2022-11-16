@@ -54,14 +54,14 @@ postmen_list = []
 message_postlist = []
 for i in range(cantidad_usuarios):
     name = input(f'Digite el nombre del usuario número {i+1}: ')
-    no_likes = int(input('Digite la cantidad de likes: '))
-    numero_comentarios = int(input('Digite la cantidad de comentarios que desea dejar en la caja: '))
+    no_likes = int(input(f'Digite la cantidad de likes de {name}: '))
+    numero_comentarios = int(input(f'Digite la cantidad de comentarios que desea dejar en la caja de {name}: '))
     box_comments = []
     for i in range(numero_comentarios):
-        comment = input(f'Digite el comentario número {i+1}: ')
+        comment = input(f'Digite el comentario número {i+1} para {name}: ')
         box_comments.append(comment)
-    message = input('Digite una descripsión para su perfil: ')
-    fecha_registro = input('Digite la fecha actual para su registro: ')
+    message = input(f'Digite una descripsión para el perfil de {name}: ')
+    fecha_registro = input(f'Digite la fecha actual para el registro de {name}: ')
     
     new_user = postman(no_likes,box_comments)
     new_comented = commentedPostmen(message,no_likes,box_comments)
