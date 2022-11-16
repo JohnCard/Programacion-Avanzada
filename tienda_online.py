@@ -25,6 +25,18 @@ class comida(article):
         return f'''El producto {self.nombre} es del tipo {self.tipo}
 Codigo del producto {self.nombre}: {self.codigo}, que pertenece al grupo de {self.grupo}'''
 
+class bebida(article,comida):
+    def __init__(precio,nombre,codigo,tipo,grupo,sabor):
+        article.__init__(self,precio,nombre,codigo)
+        comida.__init__(self,tipo,grupo)
+        self.sabor = sabor
+    def __str__(self):
+        return f'''Nombre del producto: {self.nombre}
+La bebida {self.nombre} cuesta ${self.precio} y se rige por el codigo {self.codigo}
+La bebida {self.nombre} pertenece al grupo {self.grupo} y tiene sabor a {self.sabor}'''
+    def getTipado(self):
+        return f'El producto {self.nombre} pertnece al grupo de {self.tipo}'
+
 class electronics(article):
     def __init__(precio,nombre,codigo,no_bites,tipo_cargador):
         super().__init__(precio,nombre,codigo)
@@ -49,3 +61,4 @@ class computer(article,electronics):
         return f'''Nombre del la pc: {self.nombre}
 La computadora {self.nombre} tiene un precio de {self.precio} y sigue el codigo: {self.codigo}
 La computadora {self.nombre} pertenece a la marca {self.marca} y es del tipo {self.tipo}'''
+
