@@ -62,3 +62,11 @@ class computer(article,electronics):
 La computadora {self.nombre} tiene un precio de {self.precio} y sigue el codigo: {self.codigo}
 La computadora {self.nombre} pertenece a la marca {self.marca} y es del tipo {self.tipo}'''
 
+answer = 's'
+while(answer == 's'):
+    tipo_producto = input('''Digite el tipo de producto que quiere comprar 
+a) para un comestible y b) para un  electrodomestico: ''')
+    if(tipo_producto == 'a'):
+        product_name = input('Ahora digite a) para un electrodomestico cualquiera o b) para una pc: ')
+        if(product_name == 'a'):
+            name = input('Digite el nombre del producto a comprar: ')
