@@ -1,3 +1,4 @@
+# -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 def preguntas():
     name = input('Digite el nombre del producto a comprar: ')
     precio = float(input(f'Digite el precio del {name}: '))
@@ -5,6 +6,7 @@ def preguntas():
     no_bites = input(f'Digite el número de bites del {name}: ')
     return name,precio,codigo,no_bites
 
+# -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 def preguntas_dos():
     name = input('Digite el nombre del producto a comprar: ')
     precio = float(input(f'Digite el precio del {name}: '))
@@ -13,6 +15,7 @@ def preguntas_dos():
     grupo = input(f'Digite la clasificación a la que pertenece {name}: ')
     return name,precio,codigo,tipo,grupo
 
+# -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Etapa uno de nuestro modulo
 class article:
     def __init__(self,precio,nombre,codigo):
@@ -31,6 +34,7 @@ Precio: ${self.precio}'''
     def getCode(self):
         return f'Codigo del producto {self.nombre}: {self.codigo}'
 
+#  -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 class comida(article):
     def __init__(self,precio,nombre,codigo,tipo,grupo):
         super().__init__(precio,nombre,codigo)
@@ -40,6 +44,7 @@ class comida(article):
         return f'''El producto {self.nombre} es del tipo {self.tipo}
 Codigo del producto {self.nombre}: {self.codigo}, que pertenece al grupo de {self.grupo}'''
 
+# -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 class bebida(comida,article):
     def __init__(self,precio,nombre,codigo,tipo,grupo,sabor):
         article.__init__(self,precio,nombre,codigo)
@@ -52,6 +57,7 @@ La bebida {self.nombre} pertenece al grupo {self.grupo} y tiene sabor a {self.sa
     def getTipado(self):
         return f'El producto {self.nombre} pertnece al grupo de {self.tipo}'
 
+# -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 class electronics(article):
     def __init__(self,precio,nombre,codigo,no_bites):
         super().__init__(precio,nombre,codigo)
@@ -63,6 +69,7 @@ class electronics(article):
 El producto {self.nombre} tiene un precio de {self.precio} y el codigo de {self.codigo}
 El producto tiene una cantidad de {self.no_bites} bites.'''
 
+# -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 class computer(electronics,article):
     def __init__(self,precio,nombre,codigo,no_bites,tipo,marca):
         article.__init__(self,precio,nombre,codigo)
@@ -74,6 +81,8 @@ class computer(electronics,article):
 La computadora {self.nombre} tiene un precio de {self.precio} y sigue el codigo: {self.codigo}
 La computadora {self.nombre} pertenece a la marca {self.marca} y es del tipo {self.tipo}'''
 
+# -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# 2da etapa para nuestro proyecto
 answer = 's'
 while(answer == 's'):
     tipo_producto = input('''Digite el tipo de producto que quiere comprar 
@@ -84,18 +93,24 @@ a) para un comestible y b) para un  electrodomestico: ''')
             name,precio,codigo,no_bites = preguntas()
             electrodomestico = electronics(precio,name,codigo,no_bites)
             print(electrodomestico)
+            answer = input(f'Desea comprar el producto {name} de precio ${precio} (S/N)? ')
         else:
             name,precio,codigo,no_bites = preguntas()
             tipo = input(f'Digite el tipo del producto {name} (laptop/computador fijo): ')
             marca = input(f'Digite la marca de la pc {name}: ')
             pc = computer(precio,name,codigo,no_bites,tipo,marca)
             print(pc)
+            answer = input(f'Desea comprar el producto {name} de precio ${precio} (S/N)? ')
     else:
         product_name = input('Ahora digite a) para una botana o b) para una bebida: ')
         if(product_name == 'a'):
             name,precio,codigo,tipo,grupo = preguntas_dos()
             new_product = comida(precio,name,codigo,tipo,grupo)
             print(new_product)
+            answer = input(f'Desea comprar el producto {name} de precio ${precio} (S/N)? ')
         else:
             name,precio,codigo,tipo,grupo = preguntas_dos()
             sabor = input(f'Digite el sabor de {name}: ')
+            new_product = bebida(precio,name,codigo,tipo,grupo,sabor)
+            print(new_product)
+            answer = input(f'Desea comprar el producto {name} de precio ${precio} (S/N)? ')
