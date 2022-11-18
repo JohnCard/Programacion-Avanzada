@@ -33,6 +33,8 @@ Precio: ${self.precio}'''
         return f'Nombre del producto: {self.nombre}'
     def getCode(self):
         return f'Codigo del producto {self.nombre}: {self.codigo}'
+    def comprar(self):
+        return f'El producto {self.nombre} ha sido oficialmente comprado'
 
 #  -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 class comida(article):
@@ -48,7 +50,7 @@ Codigo del producto {self.nombre}: {self.codigo}, que pertenece al grupo de {sel
 class bebida(comida,article):
     def __init__(self,precio,nombre,codigo,tipo,grupo,sabor):
         article.__init__(self,precio,nombre,codigo)
-        comida.__init__(self,tipo,grupo)
+        comida.__init__(self,tipo,grupo,codigo,tipo,grupo)
         self.sabor = sabor
     def __str__(self):
         return f'''Nombre del producto: {self.nombre}
@@ -73,7 +75,7 @@ El producto tiene una cantidad de {self.no_bites} bites.'''
 class computer(electronics,article):
     def __init__(self,precio,nombre,codigo,no_bites,tipo,marca):
         article.__init__(self,precio,nombre,codigo)
-        electronics.__init__(self,no_bites)
+        electronics.__init__(self,no_bites,nombre,codigo,no_bites)
         self.tipo = tipo
         self.marca = marca
     def __str__(self):
@@ -93,24 +95,41 @@ a) para un comestible y b) para un  electrodomestico: ''')
             name,precio,codigo,no_bites = preguntas()
             electrodomestico = electronics(precio,name,codigo,no_bites)
             print(electrodomestico)
-            answer = input(f'Desea comprar el producto {name} de precio ${precio} (S/N)? ')
+            answer_dos = input(f'Desea comprar el producto {name} de precio ${precio} (S/N)? ')
+            if(answer_dos == 's'):
+                print(electrodomestico.comprar())
+            else:
+                print('Gracias por su visita!. ')
         else:
             name,precio,codigo,no_bites = preguntas()
             tipo = input(f'Digite el tipo del producto {name} (laptop/computador fijo): ')
             marca = input(f'Digite la marca de la pc {name}: ')
             pc = computer(precio,name,codigo,no_bites,tipo,marca)
             print(pc)
-            answer = input(f'Desea comprar el producto {name} de precio ${precio} (S/N)? ')
+            answer_dos = input(f'Desea comprar el producto {name} de precio ${precio} (S/N)? ')
+            if(answer_dos == 's'):
+                print(pc.comprar())
+            else:
+                print('Gracias por su visita!. ')
     else:
         product_name = input('Ahora digite a) para una botana o b) para una bebida: ')
         if(product_name == 'a'):
             name,precio,codigo,tipo,grupo = preguntas_dos()
             new_product = comida(precio,name,codigo,tipo,grupo)
             print(new_product)
-            answer = input(f'Desea comprar el producto {name} de precio ${precio} (S/N)? ')
+            answer_dos = input(f'Desea comprar el producto {name} de precio ${precio} (S/N)? ')
+            if(answer_dos == 's'):
+                print(new_product.comprar())
+            else:
+                print('Gracias por su visita!. ')
         else:
             name,precio,codigo,tipo,grupo = preguntas_dos()
             sabor = input(f'Digite el sabor de {name}: ')
             new_product = bebida(precio,name,codigo,tipo,grupo,sabor)
             print(new_product)
-            answer = input(f'Desea comprar el producto {name} de precio ${precio} (S/N)? ')
+            answer_dos = input(f'Desea comprar el producto {name} de precio ${precio} (S/N)? ')
+            if(answer_dos == 's'):
+                print(new_product.comprar())
+            else:
+                print('Gracias por su visita!. ')
+    answer = input('Desea comprar otra cosa? ')
